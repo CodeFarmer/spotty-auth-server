@@ -21,9 +21,20 @@
 
 - [X] write skeleton routes
 
-- [ ] identify the correct authorization flow
+- [X] identify the correct authorization flow
+  - refreshable via code
 
-- [ ] implement workflow without crypto (ie., rely on state and HTTPS)
+- [X] implement workflow without crypto (ie., rely on state and HTTPS)
+  - can keep this around as dev mode
+  - [X] naive implementation - assume blocking call always arrives before auth
+    - blocking call puts a promise into a state map then immediately tries to deref
+  - [X] deal with case where auth happens then blocking call turns up
+    - auth will have to create the promise
+    - watch out for the race condition!
+
+- [ ] consider if race condition can still happen with the current atom impl
+
+- [ ] write thready unit tests for handler functions
 
 - [ ] server implementation details
   - [ ] defend against DOS by hashing the state string with the
@@ -31,7 +42,9 @@
   - [ ] store things in a configurable cache?
     - size
     - TTL
-  
+
+- [ ] slightly nicer redirect page
+
 - [ ] dockerize
 - [ ] terraform
   - ECS

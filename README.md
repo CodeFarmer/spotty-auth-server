@@ -21,6 +21,15 @@ To start a web server for the application, run:
 To get an executable server JAR, run:
 
 	lein ring uberjar
+h
+## Usage
+
+1. Make a call to https://accounts.spotify.com/authorize and pass some
+   unique-ish $thing as its state parameter, and
+   spotty-auth.example.com/authorized as the redirect parameter (see Spotify docs)
+2. Make a call to the server's /token/$thing, which will block
+3. Spotify will call the server's authorized endpoint with the auth token
+4. The all to /token endpoint will unblock and return the token
 
 ## License
 
