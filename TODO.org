@@ -1,0 +1,40 @@
+- [X] describe workflow
+
+  1. API client asks for authorization, passes STATE
+     - STATE is a random string
+  2. API client requests the server endpoint GET /token/IDENTIFIER
+     - IDENTIFIER is STATE:HASH
+       - HASH is STATE hashed with the server's shared secret
+     - this can be requested only once; the first request will block, later ones will 404
+     - yeah, don't lose the secret
+     - [ ] later, allow multiple key/secret pairs
+       - STATE:ID:HASH
+  3. API client blocks
+  4. Spotify authorizes the request and redirects to /authorized?code=CODE&state=STATE
+     - TODO figure out if this (code) is actually the right flow
+  5. Server finds the blocking call and puts the result of the callback (CODE) into its response
+  6. token request is unblocked and returns
+
+- Hey Spotify: how can you prevent fake auths from coming in, pretending to be redirects?
+
+- [X] write skeleton tests
+
+- [X] write skeleton routes
+
+- [ ] identify the correct authorization flow
+
+- [ ] implement workflow without crypto (ie., rely on state and HTTPS)
+
+- [ ] server implementation details
+  - [ ] defend against DOS by hashing the state string with the
+    spotify secret
+  - [ ] store things in a configurable cache?
+    - size
+    - TTL
+  
+- [ ] dockerize
+- [ ] terraform
+  - ECS
+  - HTTPS termination
+- [ ] consider whether it can be implemented as a lambda and DynamoDB?
+  - this is certainly much cheaper
