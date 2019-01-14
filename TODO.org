@@ -45,7 +45,7 @@
 
 - [ ] slightly nicer redirect page
 
-- [ ] dockerize
+- [X] dockerize
 - [ ] terraform
   - ECS
   - HTTPS termination
