@@ -46,8 +46,16 @@
 - [ ] slightly nicer redirect page
 
 - [X] dockerize
-- [ ] terraform
-  - ECS
-  - HTTPS termination
+- [-] terraform
+  - [-] Beanstalk
+    - [X] from dockerhub
+    - [ ] create application version in terraform
+    - [ ] as upload?
+  - [X] HTTPS termination
 - [ ] consider whether it can be implemented as a lambda and DynamoDB?
   - this is certainly much cheaper
+
+- [ ] versioning
+  - [ ] git tag?
+  - [ ] return as / element
+  - [ ] use for application version in .tf
