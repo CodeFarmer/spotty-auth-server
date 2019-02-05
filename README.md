@@ -21,7 +21,11 @@ To start a web server for the application, run:
 To get an executable server JAR, run:
 
 	lein ring uberjar
-h
+
+A Docker container is published to joelgluth/spotty-auth-server from the Dockerfile in the root directory. To build locally, first build the uberjar and then
+
+	docker build .
+
 ## Usage
 
 1. Make a call to https://accounts.spotify.com/authorize and pass some

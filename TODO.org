@@ -52,6 +52,9 @@
     - [ ] create application version in terraform
     - [ ] as upload?
   - [X] HTTPS termination
+
+  - [X] Move the TF stuff out into gluth.io repo
+
 - [ ] consider whether it can be implemented as a lambda and DynamoDB?
   - this is certainly much cheaper
 
